@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WelcomeScreenView: View {
     @State private var isLinkActive = false
+    var onFinish: (Bool) -> Void
     
     var body: some View {
         NavigationView {
@@ -26,7 +27,7 @@ struct WelcomeScreenView: View {
                         label: {
                           
                         })
-                        .navigationBarHidden(true)
+                        .navigationBarHidden(false)
                 }
                 .padding()
             }
@@ -41,7 +42,7 @@ struct WelcomeScreenView: View {
 
 struct WelcomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeScreenView()
+        RootView()
     }
 }
 

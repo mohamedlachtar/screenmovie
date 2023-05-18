@@ -6,23 +6,19 @@ struct CreateNewPost: View {
 
     @State private var description = ""
 
-
-    @State private var selectedImage: UIImage?
-    @State private var showGallery = false
-    @State private var showAlert = false
+    @State var selectedImage: UIImage?
+    @State var showGallery = false
+    @State var showAlert = false
+//    @State var description = ""
+    @State var selectedImageUrl = "" // Define selectedImageUrl variable
+//    @State private var selectedImage: UIImage?
+//    @State private var showGallery = false
+//    @State private var showAlert = false
 
     @EnvironmentObject var postViewModel : PostViewModel
     
     
     @Environment(\.presentationMode) var presentationMode
-    
-    // Add token as a property
-        let token: String
-
-        // Add token as a parameter to the initializer
-        init(token: String) {
-            self.token = token
-        }
 
     
     var body: some View {
@@ -40,7 +36,7 @@ struct CreateNewPost: View {
 
                                             .frame(width: 150, height: 150)
 
-                        if let image = selectedImage{
+                     if let image = selectedImage{
 
                             Image(uiImage: image)
 
@@ -64,15 +60,10 @@ struct CreateNewPost: View {
 
                     .background(RoundedRectangle(cornerRadius: 8).stroke(AppColors.primary2).padding(.horizontal,8))
 
-                
-                
-
-                
-                
-
+          
                 Button("Add Post", action: {
                     if let selectedImage = selectedImage {
-                        postViewModel.createPost(description: description, image: selectedImage, token: token) { result in
+                        postViewModel.addPost( description: description, imageUrl: selectedImage){ result in
                             switch result {
                             case .success:
                                 showAlert = true
@@ -81,6 +72,7 @@ struct CreateNewPost: View {
                             }
                         }
                     }
+                       
                 })
 
 
@@ -91,7 +83,7 @@ struct CreateNewPost: View {
 
                     .foregroundColor(AppColors.primary)
 
-                    .background(AppColors.primary2)
+                    .background(AppColors.primary2)//ak7el 
 
                     .cornerRadius(10)
 
@@ -122,7 +114,7 @@ struct CreateNewPost_Previews: PreviewProvider {
 
     static var previews: some View {
 
-        CreateNewPost(token: UserDefaults.standard.string(forKey: "token") ?? "")
+        CreateNewPost()
 
     }
 

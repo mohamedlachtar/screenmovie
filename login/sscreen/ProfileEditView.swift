@@ -14,7 +14,7 @@
 //    @State private var name: String = ""
 //    @State private var bio: String = ""
 //    @State private var link: String = ""
-//    @Environment(\.presentationMode) var presentationMode
+//   // @Environment(\.presentationMode) var presentationMode
 //    @State var isShowAlert = false
 //    @State var isPasswordResetSuccess = false
 //
@@ -34,7 +34,7 @@
 //            .navigationBarBackButtonHidden(true)
 //            .navigationTitle(Text("Edit Profile"))
 //            .navigationBarItems(leading: Button(action: {
-//                self.presentationMode.wrappedValue.dismiss()
+//               // self.presentationMode.wrappedValue.dismiss()
 //            }, label: {
 //                Text("Cancel")
 //            }), trailing: Button(action: {
@@ -47,14 +47,14 @@
 //                    return Alert(title: Text("Password Reset"),
 //                                 message: Text("Please check your email for directions on how to reset your password"),
 //                                 dismissButton: .default(Text("Ok"), action: {
-//                                    self.presentationMode.wrappedValue.dismiss()
+//                                 //   self.presentationMode.wrappedValue.dismiss()
 //                                 })
 //                    )
 //                } else {
 //                    return Alert(title: Text("Updates Saved"),
 //                                 message: Text("All changes saved!"),
 //                                 dismissButton: .default(Text("Ok"), action: {
-//                                    self.presentationMode.wrappedValue.dismiss()
+//                                   // self.presentationMode.wrappedValue.dismiss()
 //                                 })
 //                    )
 //                }

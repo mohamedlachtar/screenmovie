@@ -2,9 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIBackgroundModes</key>
+	<key></key>
+	<string></string>
+	<key>CFBundleURLTypes</key>
 	<array>
-		<string>remote-notification</string>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1227222047925437</string>
+			</array>
+		</dict>
 	</array>
+	<key>FacebookAppID</key>
+	<string>1227222047925437</string>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<true/>
+	<key>FacebookClientToken</key>
+	<string>cb633055b6058afed0df5811e6db512a</string>
+	<key>FacebookDisplayName</key>
+	<string>test</string>
 </dict>
 </plist>

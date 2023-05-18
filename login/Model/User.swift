@@ -10,13 +10,14 @@ struct User: Codable {
     let token: String
     let name : String
     let image : String
-
+    let username : String
     
     private enum CodingKeys: String, CodingKey {
         case email
         case token
         case name
         case image
+        case username
     }
 }
 

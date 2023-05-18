@@ -58,11 +58,13 @@ struct forgot2: View {
                    }, onCommit: {
                        //  isCodeComplete = code.count == 4
                    })
+                   
                    .font(.title2)
                    .keyboardType(.numberPad)
                    .frame(width: 120, height: 70)
                    .multilineTextAlignment(.center)
                    .foregroundColor(AppColors.primary2)
+                   .accentColor(AppColors.primary2) // Set the accent color to AppColors.primary2
                    .background(RoundedRectangle(cornerRadius: 15).strokeBorder(Color.gray, lineWidth: 1))
                    .padding(.top, 30)
                    .disabled(isCodeComplete)

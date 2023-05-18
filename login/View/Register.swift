@@ -38,11 +38,13 @@ struct RegisterView: View {
             TextField("Email", text: $email)
                 .frame(height: 50)
                 .foregroundColor(AppColors.primary2)
+                .accentColor(AppColors.primary2) // Set the accent color to AppColors.primary2
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 15))
                 .textFieldStyle(PlainTextFieldStyle())
                 .background(Color(.systemGray6).opacity(0.7))
                 .cornerRadius(30)
                 .padding(.horizontal,20)
+
                 
                 
             Text(emailError)
@@ -56,11 +58,13 @@ struct RegisterView: View {
             TextField("Username", text: $username)
                 .frame(height: 50)
                 .foregroundColor(AppColors.primary2)
-                .padding(EdgeInsets(top:0, leading: 20, bottom: 0, trailing: 15))
+                .accentColor(AppColors.primary2) // Set the accent color to AppColors.primary2
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 15))
                 .textFieldStyle(PlainTextFieldStyle())
                 .background(Color(.systemGray6).opacity(0.7))
                 .cornerRadius(30)
                 .padding(.horizontal,20)
+
             
             Text(usernameError)
                 .foregroundColor(.red)
@@ -71,11 +75,14 @@ struct RegisterView: View {
             SecureField("Password", text: $password)
                 .frame(height: 50)
                 .foregroundColor(AppColors.primary2)
-                .padding(EdgeInsets(top:0, leading: 20, bottom: 0, trailing: 15))
+                .accentColor(AppColors.primary2) // Set the accent color to AppColors.primary2
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 15))
                 .textFieldStyle(PlainTextFieldStyle())
                 .background(Color(.systemGray6).opacity(0.7))
                 .cornerRadius(30)
                 .padding(.horizontal,20)
+                
+
             
             Text(passwordError)
                 .multilineTextAlignment(.leading)

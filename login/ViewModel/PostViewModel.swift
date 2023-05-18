@@ -9,182 +9,201 @@ import Combine
 import UIKit
 import Alamofire
 import Foundation
-//import  Alamofire
-//import Combine
-//import CoreData
-//import SwiftUI
-//
-//
-//class PostsViewModel : ObservableObject {
-//    @Published var posts: [Post] = []
-//    @Published var errorMessage = ""
-//    var userId:String = ""
-//
-//    func fetchPosts() {
-//        guard let url = URL(string: "http://localhost:8080/getPosts") else { return }
-//
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//
-//        let body = ["userId": userId]
-//        guard let httpBody = try? JSONSerialization.data(withJSONObject: body, options: []) else { return }
-//        request.httpBody = httpBody
-//
-//        URLSession.shared.dataTask(with: request) { (data, response, error) in
-//            guard let data = data else { return }
-//            let decoder = JSONDecoder()
-//            decoder.dateDecodingStrategy = .iso8601
-//            if let posts = try? decoder.decode([Post].self, from: data) {
-//                DispatchQueue.main.async {
-//                    self.posts = posts // Update self.posts here
-//                }
-//            }
-//        }.resume()
-//    }
-//    func fetchPosts(for userId: String) {
-//           guard let url = URL(string: "http://localhost:8080/getPosts") else {
-//               fatalError("Invalid URL")
-//           }
-//
-//           let parameters = ["userId": String(userId)]
-//           var request = URLRequest(url: url)
-//           request.httpMethod = "POST"
-//           request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//           request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
-//
-//           let session = URLSession.shared
-//           let task = session.dataTask(with: request) { data, response, error in
-//               guard let data = data else {
-//                   fatalError("No data in response: \(error?.localizedDescription ?? "Unknown error")")
-//               }
-//
-//               print(String(data: data, encoding: .utf8) ?? "Unable to decode data")
-//
-//               do {
-//                   let decoder = JSONDecoder()
-//                   let postsData = try decoder.decode([Post].self, from: data)
-//                   print(postsData)
-//                   DispatchQueue.main.async {
-//                       self.posts = postsData
-//
-//                   }
-//               } catch {
-//                   fatalError("Error decoding response: \(error.localizedDescription)")
-//               }
-//           }
-//           task.resume()
-//       }
-//
-//
-//}
-class PostViewModel : ObservableObject {
-    @Published var createdPost: Post?
+import  Alamofire
+import Combine
+import CoreData
+import SwiftUI
+
+import Foundation
+
+class PostViewModel: ObservableObject {
+    @Published var posts: [Post] = []
+    @Published var errorMessage: String?
+    @Published var userPosts: [Post] = []
+    @Published var comments: [Comment] = []
     
-    let token : String
     
-    init(token:String = UserDefaults.standard.string(forKey: "token") ?? ""){
-        self.token=token
+    
+    init() {
+        fetchPosts()
+        // fetchPostsbyId()
     }
-        
-    /*func createPost(description: String, image: UIImage, token: String) {
-            // Create the URL request
-            let url = URL(string: "http://localhost:8080/createPost")!
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-            // Create the post data to be sent in the request body
-            let boundary = UUID().uuidString
-            let contentType = "multipart/form-data; boundary=\(boundary)"
-            let imageData = image.jpegData(compressionQuality: 0.5)!
-            var body = Data()
-            body.append("--\(boundary)\r\n".data(using: .utf8)!)
-            body.append("Content-Disposition: form-data; name=\"description\"\r\n\r\n".data(using: .utf8)!)
-            body.append("\(description)\r\n".data(using: .utf8)!)
-            body.append("--\(boundary)\r\n".data(using: .utf8)!)
-            body.append("Content-Disposition: form-data; name=\"createdDate\"\r\n\r\n".data(using: .utf8)!)
-            //body.append("\(createdDate)\r\n".data(using: .utf8)!)
-            //body.append("--\(boundary)\r\n".data(using: .utf8)!)
-            body.append("Content-Disposition: form-data; name=\"image\"; filename=\"image.jpeg\"\r\n".data(using: .utf8)!)
-            body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
-            body.append(imageData)
-            body.append("\r\n".data(using: .utf8)!)
-            body.append("--\(boundary)--\r\n".data(using: .utf8)!)
-            // Set the request body and content type
-            request.httpBody = body
-            request.setValue(contentType, forHTTPHeaderField: "Content-Type")
-            // Send the API request
-            URLSession.shared.dataTask(with: request) { data, response, error in
-                guard let data = data else {
-                    print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
-                    return
-                }
+    
+    func fetchPosts() {
+        AF.request("http://localhost:8080/posts", method: .get).validate().responseData { response in
+            switch response.result {
+            case .success(let data):
+                // print raw data as a string
+                print(String(data: data, encoding: .utf8) ?? "Could not print data as string")
+                
+                let decoder = JSONDecoder()
                 do {
-                    let decoder = JSONDecoder()
-                    decoder.dateDecodingStrategy = .iso8601
-                    let post = try decoder.decode(Post.self, from: data)
+                    let posts = try decoder.decode([Post].self, from: data)
                     DispatchQueue.main.async {
-                        self.createdPost = post
+                        self.posts = posts
                     }
                 } catch {
-                    print("Error decoding post: \(error.localizedDescription)")
+                    print("Error decoding posts: \(error)")
                 }
-            }.resume()
-        }*/
-    
-    @Published var posts = [Post]()
-        
-        func createPost(description: String, image: UIImage, token: String, completion: @escaping (Result<Post, Error>) -> Void) {
-            
-            let headers: HTTPHeaders = [
-                       "Authorization": "Bearer \(token)"
-                   ]
-            
-            let parameters: [String: Any] = [
-                "description":description
-            ]
-            
-            
-//            guard let imageData = image.jpegData(compressionQuality: 0.5) else {
-//                completion(.failure(NSError(domain: "localhost", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid image data"])))
-//                return
-//            }
-//
-//            AF.upload(multipartFormData: { multipartFormData in
-//                multipartFormData.append(imageData, withName: "image", fileName: "image.jpg", mimeType: "image/jpeg")
-//                multipartFormData.append(description.data(using: .utf8)!, withName: "description")
-//            }, to: "http://localhost:8080/createPost", headers: headers)
-//            .responseDecodable(of: Post.self) { response in
-//                switch response.result {
-//                case .success(let post):
-//                    completion(.success(post))
-//                case .failure(let error):
-//                    completion(.failure(error))
-//                }
-//            }
-            
-            AF.upload(multipartFormData:{multipartFormData in
-                for(key, value) in parameters{
-                    if let stringValue = value as? String {
-                        if let data = stringValue.data(using: .utf8){
-                            multipartFormData.append(data, withName: key)
-                        }
-                    }
-                }
-                
-                if let imageData = image.jpegData(compressionQuality: 0.5) {
-                    multipartFormData.append(imageData, withName: "imageUrl", fileName: "baby.jpg", mimeType: "image/jpeg")
-                }}, to: "http://localhost:8080/createPost", headers: headers)
-            .responseJSON { response in
-                switch response.result {
-                case .success:
-                    completion(.success(self.createdPost ?? Post(id: "", description: "", imageUrl: "", user: "")))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-                
+            case .failure(let error):
+                print("Error fetching posts: \(error)")
             }
         }
+    }
+    func fetchComments(for postId: String) {
+        AF.request("http://localhost:8080/api/Comments/\(postId)", method: .get).validate().responseDecodable(of: [Comment].self) { response in
+            switch response.result {
+            case .success(let comments):
+                DispatchQueue.main.async {
+                    print(comments)
+                    self.comments = comments
+                }
+            case .failure(let error):
+                print("Error decoding comments: \(error)")
+            }
+        }
+    }
+    func addPost( description: String, imageUrl: UIImage, completion: @escaping (Result<Bool, Error>) -> Void) {
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        let parameters: [String: Any] = [
+            "description": description,
+            "token":token
+        ]
+        
+        AF.upload(multipartFormData: { multipartFormData in
+            for (key, value) in parameters {
+                if let stringValue = value as? String {
+                    if let data = stringValue.data(using: .utf8) {
+                        multipartFormData.append(data, withName: key)
+                    }
+                }
+            }
+            
+            if let imageData = imageUrl.jpegData(compressionQuality: 0.5) {
+                multipartFormData.append(imageData, withName: "imageUrl", fileName: "Post.jpg", mimeType: "image/jpeg")
+            }
+        }, to: "http://localhost:8080/createPost")
+        .responseJSON { response in
+            switch response.result {
+            case .success:
+                completion(.success(true))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+        
+        
+    }
+    
+    func getUserPost() {
+        let token = "your-auth-token" // replace with your actual auth token
+        guard let url = URL(string: "http://localhost:8080/getPosts") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        // Set authorization header
+        let headers = ["Authorization": "Bearer \(token)"]
+        request.allHTTPHeaderFields = headers
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                print("Invalid response")
+                return
+            }
+            
+            if let data = data {
+                do {
+                    let posts = try JSONDecoder().decode([Post].self, from: data)
+                    DispatchQueue.main.async {
+                        self.userPosts = posts
+                        print(self.userPosts)
+                    }
+                } catch {
+                    print("Error decoding new posts: \(error)")
+                }
+            }
+        }.resume()}
+        
+        func deletePost(postId : String ,completion: @escaping (Result<Bool, Error>) -> Void) {
+            
+            let url = URL(string: "http://localhost:8080/deletePost")!
+            
+            let parameters: [String: Any] = [
+                
+                "postId" : postId
+                
+            ]
+            AF.request(url, method: .put, parameters: parameters, encoding: JSONEncoding.default)
+            
+                .responseJSON { response in
+                    
+                    switch response.result {
+                        
+                    case .success:
+                        
+                        completion(.success(true))
+                        
+                    case .failure(let error):
+                        
+                        completion(.failure(error))
+                        
+                    }
+                    
+                }
+        }
+    
+    func addComment(to postId: String, content: String) {
+        let parameters: [String: Any] = ["post": postId, "content": content,"user":"643cca9ae78a899f5c152b48"]
+        
+        AF.request("http://localhost:8080/api/comment", method: .post, parameters: parameters,encoding: JSONEncoding.default)  .responseJSON { response in
+            print("Response: \(String(data: response.data ?? Data(), encoding: .utf8) ?? "")")
+            print("Post ID: \(postId)")
+            switch response.result {
+               
+            case .success:
+                print("Comment added successfully")
+            case .failure(let error):
+                print("Error adding comment: \(error)")
+            }
+        }
+    }
+    
+    struct LikeParameters: Encodable {
+        let post: String
+        let user: String
+    }
 
+    func likePost(post: Post, completion: @escaping (Bool, Error?) -> Void) {
+        let userId = "643cca9ae78a899f5c152b48"
+        let parameters = LikeParameters(post: post.id, user: userId)
+            
+        AF.request("http://localhost:8080/api/like",
+                   method: .post,
+                   parameters: parameters,
+                   encoder: JSONParameterEncoder.default)
+        .responseJSON { response in
+            switch response.result {
+            case .success(let json):
+                if let jsonDict = json as? [String: Any],
+                   let numberoflickes = jsonDict["numberoflickes"] as? Int,
+                   let likes = jsonDict["likes"] as? [String] {
+                    DispatchQueue.main.async {
+                        post.numberoflickes = numberoflickes
+                        post.likes = likes
+                    }
+                    completion(true, nil)
+                }
+            case .failure(let error):
+                completion(false, error)
+            }
+        }
+    }
 
-}
+        
+    }

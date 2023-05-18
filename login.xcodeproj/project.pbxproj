@@ -22,18 +22,26 @@
 		D900847429ED2FDC00F87375 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D900847329ED2FDC00F87375 /* README.md */; };
 		D91AF79D29E75A1900B159B5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91AF79C29E75A1900B159B5 /* Post.swift */; };
 		D91AF79F29E7685500B159B5 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91AF79E29E7685500B159B5 /* PostViewModel.swift */; };
-		D962BB4629D19B49004FA30A /* profil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962BB4529D19B49004FA30A /* profil.swift */; };
+		D937370B29F802BF00F98716 /* postItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D937370A29F802BF00F98716 /* postItem.swift */; };
+		D959B1672A08C8930071C93E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959B1662A08C8930071C93E /* Comment.swift */; };
+		D95B716F2A14C93200E9A0B0 /* FaceIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B716E2A14C93200E9A0B0 /* FaceIDView.swift */; };
+		D95B71742A15273900E9A0B0 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = D95B71732A15273900E9A0B0 /* FacebookLogin */; };
+		D962BB4629D19B49004FA30A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962BB4529D19B49004FA30A /* ProfileView.swift */; };
 		D962BB4829D1C63B004FA30A /* CreateNewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962BB4729D1C63B004FA30A /* CreateNewPost.swift */; };
 		D969D17829E7EE9500D7D76B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D969D17729E7EE9500D7D76B /* Home.swift */; };
 		D969D17A29E82B3E00D7D76B /* zaza.swift in Sources */ = {isa = PBXBuildFile; fileRef = D969D17929E82B3E00D7D76B /* zaza.swift */; };
 		D98DE3AE29CDB56F009C394A /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98DE3AD29CDB56F009C394A /* HomeScreen.swift */; };
-		D9C0A4C929DF01A50097D368 /* qssq.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C0A4C829DF01A50097D368 /* qssq.swift */; };
+		D9CC1A8729FA89AA009152FC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CC1A8629FA89AA009152FC /* RootView.swift */; };
 		D9CDA4C929D3018D00EC42B5 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CDA4C829D3018D00EC42B5 /* ProfileEditView.swift */; };
+		D9D916DD2A06132C0043A22B /* newpassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D916DC2A06132C0043A22B /* newpassword.swift */; };
+		D9D916DF2A0614310043A22B /* newusername.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D916DE2A0614310043A22B /* newusername.swift */; };
+		D9D92D502A05EAA1004A1578 /* postUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D92D4F2A05EAA1004A1578 /* postUser.swift */; };
 		D9DB6F2B29D6E3A000262A50 /* userViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DB6F2A29D6E3A000262A50 /* userViewModel.swift */; };
 		D9DB6F2E29D6E54C00262A50 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DB6F2D29D6E54C00262A50 /* User.swift */; };
+		D9DE11302A0BD05C000DE3E7 /* CreateNewComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DE112F2A0BD05C000DE3E7 /* CreateNewComment.swift */; };
+		D9DE11322A0BD1C6000DE3E7 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DE11312A0BD1C6000DE3E7 /* CommentViewModel.swift */; };
 		D9EFD95429EA9EBB009ABE77 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EFD95329EA9EBB009ABE77 /* AppColors.swift */; };
 		D9EFD95C29EAD196009ABE77 /* AddPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EFD95B29EAD196009ABE77 /* AddPost.swift */; };
-		D9F469EE29E57BD50027DF51 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F469ED29E57BD50027DF51 /* PostCell.swift */; };
 		D9F469F029E5805D0027DF51 /* forgot2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F469EF29E5805D0027DF51 /* forgot2.swift */; };
 		D9F469F229E5855C0027DF51 /* forgot3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F469F129E5855C0027DF51 /* forgot3.swift */; };
 /* End PBXBuildFile section */
@@ -58,18 +66,25 @@
 		D900847329ED2FDC00F87375 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D91AF79C29E75A1900B159B5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D91AF79E29E7685500B159B5 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
-		D962BB4529D19B49004FA30A /* profil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profil.swift; sourceTree = "<group>"; };
+		D937370A29F802BF00F98716 /* postItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postItem.swift; sourceTree = "<group>"; };
+		D959B1662A08C8930071C93E /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		D95B716E2A14C93200E9A0B0 /* FaceIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDView.swift; sourceTree = "<group>"; };
+		D962BB4529D19B49004FA30A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D962BB4729D1C63B004FA30A /* CreateNewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPost.swift; sourceTree = "<group>"; };
 		D969D17729E7EE9500D7D76B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		D969D17929E82B3E00D7D76B /* zaza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zaza.swift; sourceTree = "<group>"; };
 		D98DE3AD29CDB56F009C394A /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		D9C0A4C829DF01A50097D368 /* qssq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qssq.swift; sourceTree = "<group>"; };
+		D9CC1A8629FA89AA009152FC /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		D9CDA4C829D3018D00EC42B5 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
+		D9D916DC2A06132C0043A22B /* newpassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newpassword.swift; sourceTree = "<group>"; };
+		D9D916DE2A0614310043A22B /* newusername.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newusername.swift; sourceTree = "<group>"; };
+		D9D92D4F2A05EAA1004A1578 /* postUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postUser.swift; sourceTree = "<group>"; };
 		D9DB6F2A29D6E3A000262A50 /* userViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userViewModel.swift; sourceTree = "<group>"; };
 		D9DB6F2D29D6E54C00262A50 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D9DE112F2A0BD05C000DE3E7 /* CreateNewComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewComment.swift; sourceTree = "<group>"; };
+		D9DE11312A0BD1C6000DE3E7 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		D9EFD95329EA9EBB009ABE77 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		D9EFD95B29EAD196009ABE77 /* AddPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPost.swift; sourceTree = "<group>"; };
-		D9F469ED29E57BD50027DF51 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		D9F469EF29E5805D0027DF51 /* forgot2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forgot2.swift; sourceTree = "<group>"; };
 		D9F469F129E5855C0027DF51 /* forgot3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forgot3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D95B71742A15273900E9A0B0 /* FacebookLogin in Frameworks */,
 				8C32A81E6E0E306F812D6A51 /* Pods_login.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +145,7 @@
 				B071986929C0BAE600D468A4 /* Info.plist */,
 				B071986629C0BAE600D468A4 /* login.xcdatamodeld */,
 				B071986129C0BAE600D468A4 /* Preview Content */,
+				D9CC1A8629FA89AA009152FC /* RootView.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -144,14 +161,17 @@
 		B071987129C0BF2100D468A4 /* sscreen */ = {
 			isa = PBXGroup;
 			children = (
-				D962BB4529D19B49004FA30A /* profil.swift */,
 				D98DE3AD29CDB56F009C394A /* HomeScreen.swift */,
 				D962BB4729D1C63B004FA30A /* CreateNewPost.swift */,
+				D962BB4529D19B49004FA30A /* ProfileView.swift */,
 				D9CDA4C829D3018D00EC42B5 /* ProfileEditView.swift */,
-				D9C0A4C829DF01A50097D368 /* qssq.swift */,
-				D9F469ED29E57BD50027DF51 /* PostCell.swift */,
 				D969D17729E7EE9500D7D76B /* Home.swift */,
 				D969D17929E82B3E00D7D76B /* zaza.swift */,
+				D937370A29F802BF00F98716 /* postItem.swift */,
+				D9D92D4F2A05EAA1004A1578 /* postUser.swift */,
+				D9D916DC2A06132C0043A22B /* newpassword.swift */,
+				D9D916DE2A0614310043A22B /* newusername.swift */,
+				D9DE112F2A0BD05C000DE3E7 /* CreateNewComment.swift */,
 			);
 			path = sscreen;
 			sourceTree = "<group>";
@@ -162,6 +182,7 @@
 				B0B4FB7529C1BE0B00CB8385 /* Content-ViewModel.swift */,
 				D9DB6F2A29D6E3A000262A50 /* userViewModel.swift */,
 				D91AF79E29E7685500B159B5 /* PostViewModel.swift */,
+				D9DE11312A0BD1C6000DE3E7 /* CommentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -171,6 +192,7 @@
 			children = (
 				D9DB6F2D29D6E54C00262A50 /* User.swift */,
 				D91AF79C29E75A1900B159B5 /* Post.swift */,
+				D959B1662A08C8930071C93E /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,6 +214,7 @@
 				D9F469EF29E5805D0027DF51 /* forgot2.swift */,
 				D9F469F129E5855C0027DF51 /* forgot3.swift */,
 				B0B4FB7929C1EED300CB8385 /* ForgetViw.swift */,
+				D95B716E2A14C93200E9A0B0 /* FaceIDView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -231,6 +254,9 @@
 			dependencies = (
 			);
 			name = login;
+			packageProductDependencies = (
+				D95B71732A15273900E9A0B0 /* FacebookLogin */,
+			);
 			productName = login;
 			productReference = B071985829C0BAE500D468A4 /* login.app */;
 			productType = "com.apple.product-type.application";
@@ -259,6 +285,9 @@
 				Base,
 			);
 			mainGroup = B071984F29C0BAE500D468A4;
+			packageReferences = (
+				D95B71722A15273900E9A0B0 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = B071985929C0BAE500D468A4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -328,30 +357,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9F469EE29E57BD50027DF51 /* PostCell.swift in Sources */,
 				B071986529C0BAE600D468A4 /* Persistence.swift in Sources */,
 				B071987529C0C2CA00D468A4 /* SignInScreenView.swift in Sources */,
+				D95B716F2A14C93200E9A0B0 /* FaceIDView.swift in Sources */,
 				D962BB4829D1C63B004FA30A /* CreateNewPost.swift in Sources */,
 				B071987329C0C00900D468A4 /* WelcomeScreenView.swift in Sources */,
 				B0B4FB7C29C30A9B00CB8385 /* Register.swift in Sources */,
+				D9D916DD2A06132C0043A22B /* newpassword.swift in Sources */,
 				D9DB6F2B29D6E3A000262A50 /* userViewModel.swift in Sources */,
 				B0B4FB7629C1BE0B00CB8385 /* Content-ViewModel.swift in Sources */,
 				B071985E29C0BAE500D468A4 /* ContentView.swift in Sources */,
 				D9DB6F2E29D6E54C00262A50 /* User.swift in Sources */,
 				D9EFD95C29EAD196009ABE77 /* AddPost.swift in Sources */,
+				D959B1672A08C8930071C93E /* Comment.swift in Sources */,
 				D98DE3AE29CDB56F009C394A /* HomeScreen.swift in Sources */,
+				D9DE11322A0BD1C6000DE3E7 /* CommentViewModel.swift in Sources */,
 				D9F469F029E5805D0027DF51 /* forgot2.swift in Sources */,
 				D969D17A29E82B3E00D7D76B /* zaza.swift in Sources */,
 				D9CDA4C929D3018D00EC42B5 /* ProfileEditView.swift in Sources */,
+				D9D92D502A05EAA1004A1578 /* postUser.swift in Sources */,
 				B071985C29C0BAE500D468A4 /* loginApp.swift in Sources */,
 				D969D17829E7EE9500D7D76B /* Home.swift in Sources */,
 				B071986829C0BAE600D468A4 /* login.xcdatamodeld in Sources */,
-				D9C0A4C929DF01A50097D368 /* qssq.swift in Sources */,
 				D9F469F229E5855C0027DF51 /* forgot3.swift in Sources */,
 				B0B4FB7A29C1EED300CB8385 /* ForgetViw.swift in Sources */,
-				D962BB4629D19B49004FA30A /* profil.swift in Sources */,
+				D962BB4629D19B49004FA30A /* ProfileView.swift in Sources */,
+				D9D916DF2A0614310043A22B /* newusername.swift in Sources */,
 				D9EFD95429EA9EBB009ABE77 /* AppColors.swift in Sources */,
+				D9CC1A8729FA89AA009152FC /* RootView.swift in Sources */,
+				D9DE11302A0BD05C000DE3E7 /* CreateNewComment.swift in Sources */,
 				D91AF79D29E75A1900B159B5 /* Post.swift in Sources */,
+				D937370B29F802BF00F98716 /* postItem.swift in Sources */,
 				D91AF79F29E7685500B159B5 /* PostViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +520,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"login/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = login/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We Need to scan your face.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -513,6 +551,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"login/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = login/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We Need to scan your face.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -553,6 +593,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D95B71722A15273900E9A0B0 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D95B71732A15273900E9A0B0 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D95B71722A15273900E9A0B0 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B071986629C0BAE600D468A4 /* login.xcdatamodeld */ = {

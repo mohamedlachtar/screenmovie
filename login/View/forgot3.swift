@@ -43,7 +43,8 @@ struct forgot3: View {
                    .background(Color(.systemGray6).opacity(0.7))
                    .cornerRadius(30)
                    .padding(.horizontal,20)
-                   .padding(.top,30)
+                   .padding(.top,15)
+                   .accentColor(AppColors.primary2)
                
                TextField("Confirm Password", text: $confirmpassword)
                    .frame(height: 50)
@@ -54,6 +55,7 @@ struct forgot3: View {
                    .cornerRadius(30)
                    .padding(.horizontal,20)
                    .padding(.top,15)
+                   .accentColor(AppColors.primary2)
                
 
                Button(
